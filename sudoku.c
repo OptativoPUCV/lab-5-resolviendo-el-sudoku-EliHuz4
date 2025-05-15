@@ -47,21 +47,24 @@ int is_valid(Node* n){
   int visto[10];
 
     for (int i = 0; i < 9; i++) {
+        for (int z = 0; z < 10; z++){
+          visto[z] = 0;
+          }
+
         for (int j = 0; j < 9; j++) {
-          for (int j = 0; j < 9; j++) {
             int val = n->sudo[i][j];
             if (val != 0) {
                 if (visto[val]) return 0;
                 visto[val] = 1;
-              }
-          }
-      }
+            }
+        }
     }
 
     for (int j = 0; j < 9; j++) {
         for (int z = 0; z < 10; z++){
           visto[z] = 0;
-        }
+          }
+
         for (int i = 0; i < 9; i++) {
             int val = n->sudo[i][j];
             if (val != 0) {
@@ -74,7 +77,7 @@ int is_valid(Node* n){
     for (int k = 0; k < 9; k++) {
         for (int z = 0; z < 10; z++){
           visto[z] = 0;
-        }
+          }
 
         for (int p = 0; p < 9; p++) {
             int i = 3 * (k / 3) + (p / 3);
